@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wheel
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 129144227
+    locked: 0
+  - name: Player
+    uniqueID: 814048467
+    locked: 0
+  - name: Base
+    uniqueID: 2678417327
+    locked: 0
+  - name: Bullet
+    uniqueID: 3709255949
+    locked: 0
+  - name: Wheel
+    uniqueID: 4265016113
     locked: 0

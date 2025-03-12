@@ -43,34 +43,34 @@ public class Player : MonoBehaviour
     {
         InputManager.UnSubscribeToMouseEvent(OnMouseDownEvent, OnMouseUpEvent, OnMouseClickAndHold);
         InputManager.UnSubscribeToGetMousePosition(OnMousePositionUpdate);
-        // GameManager.OnGameStateChange -= OnGameStateChange;
+        GameManager.OnGameStateChange -= OnGameStateChange;
     }
     
-    // private void OnGameStateChange(GameState gameState)
-    // {
-    //     switch (gameState)
-    //     {
-    //         case GameState.MainMenu:
-    //             EnablePlayerControl(false);
-    //             _introAnimation.Play();
-    //             break;
-    //         case GameState.BeginGame:
-    //             EnablePlayerControl(true);
-    //             break;
-    //         case GameState.InGame:
-    //             _introAnimation.Stop();
-    //             break;
-    //         case GameState.GameOver:
-    //             OnGameOver();
-    //             break;
-    //     }
-    // }
+    private void OnGameStateChange(GameState gameState)
+    {
+         switch (gameState)
+         {
+             case GameState.MainMenu:
+                 EnablePlayerControl(false);
+                 _introAnimation.Play();
+                 break;
+             case GameState.BeginGame:
+                 EnablePlayerControl(true);
+                 break;
+             case GameState.InGame:
+                 _introAnimation.Stop();
+                 break;
+             case GameState.GameOver:
+                 OnGameOver();
+                 break;
+         }
+     }
     
     public void Start()
     {
         InputManager.SubscribeToMouseEvent(OnMouseDownEvent, OnMouseUpEvent, OnMouseClickAndHold);
         InputManager.SubscribeToGetMousePosition(OnMousePositionUpdate);
-        
+
         EnablePlayerControl(true);
 
         BoxCollider2D playerCollider = transform.GetComponent<BoxCollider2D>();
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
     
     private void FireBullet()
     {
-        // LevelManager.Instance.SpawnBulletObject(_bulletPivotTransform.position);
+        LevelManager.Instance.SpawnBulletObject(_bulletPivotTransform.position);
     }
     
     private void OnMousePositionUpdate(Vector2 inMousePos)
